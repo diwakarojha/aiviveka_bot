@@ -1,0 +1,165 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: about_us #about_shardeen
+  examples: |
+    - what is AIViveka?
+    - What AIViveka does?
+    - tell me about AIViveka?
+
+- intent: support_request
+  examples: |
+    - can I raise support request?
+    - need to raise request?
+    - Need to raise ticket for an issue?
+
+- intent: product_details
+  examples: |
+    - what is [ChatBot](product) ?
+    - what is [QnA System](product) ?
+    - tell me about [Semantic Search(product) ?
+    - what can [ChatBot](product) do?
+
+- intent: ask_product_inquiry
+  examples: |
+    - what are the products offered by AIViveka?
+    - Products available at AIViveka?
+    - Products offered by AIViveka? 
+- intent: faq/ask_career_options
+  examples: |
+    - what are carrer options available at AIViveka?
+    - jobs available at AIViveka?
+    - I want to work at AIViveka?
+
+- intent: faq/ask_services
+  examples: |
+    - what all services provided by AIViveka?
+    - what all services are there at AIViveka?
+    - services offered by AIViveka?
+- intent: faq/ask_clients
+  examples: |
+    - what are the clients of AIViveka?
+    - whom all AIViveka have given their services till now?
+    - who are AIViveka client?
+    - AIViveka clients.
+- intent: faq/ask_why_us #ask_why_shardeen
+  examples: |
+    - why should I select AIViveka for the services?
+    - what is unique a AIViveka?
+    - how AIViveka is different from others?
+    - why AIViveka?
+    - why us?
+- intent: faq/ask_contact_details #ask_shardeen_contact
+  examples: |
+    - How can I contact AIViveka?
+    - What is AIViveka contact number?
+    - i want to connect to someone at AIViveka?
+    - What is AIViveka Address or phone number?
+    - What is AIViveka contact email address?
+
+- intent: out_of_scope
+  examples: |
+    - lets enjoy!
+    - 2+2=?
+    - dfgfd dfgdf
+    - aa aa
+- intent: product_demo
+  examples: |
+    - Demo?
+    - show me demo?
+    - I want to see demo for AI Services do?
+
+- lookup: product
+  examples: |
+    - ChatBot
+    - QnA System
+    - Semantic Search

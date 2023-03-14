@@ -1,0 +1,221 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - about_us
+  - support_request
+  - faq
+  - out_of_scope
+  - product_details
+  - ask_product_inquiry
+  - product_demo
+
+entities:
+- product
+- email
+- number
+
+slots:
+  product:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: product
+      intent: product_details
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: support_request_form
+          requested_slot: name
+  email:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: support_request_form
+          requested_slot: email
+      # entity: email 
+  phone_number:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: support_request_form
+          requested_slot: phone_number
+      # entity: number 
+  message:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: support_request_form
+          requested_slot: message
+  confirm_detail:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+    #   intent: affirm
+    #   value: 'Yes'
+    # - type: from_intent
+    #   intent: deny
+    #   value: 'No'
+      conditions:
+        - active_loop: support_request_form
+          requested_slot: confirm_detail
+
+forms:
+  simple_product_form:
+    required_slots:
+      - product
+  support_request_form:
+    required_slots:
+      - name
+      - email
+      - phone_number
+      - message
+      - confirm_detail
+
+
+responses:
+  utter_greet:
+  - text: "<b>Hello! Welcome to AIViveka.</b><br>How may I assit you?"
+    attachment: { "type":"video", "payload":{ "src": "static/vid/rasa.mp4" } }
+    buttons:
+    - title: "About AIViveka" 
+      payload: /about_us
+    - title: "Product Inquiry"
+      payload: /ask_product_inquiry
+    - title: "Support Request"
+      payload: /support_request
+    - title: "Career"
+      payload: /faq/ask_career_options
+
+  utter_about_us:
+  - text: "At AIViveka, We are trying fill the gap between AI Research and Industry Applications. We provide NLP Solutions for Businesses to help them grow faster and provide better services to their customers. To know more, click below:"
+    buttons:
+    - title: "Services"
+      payload: /faq/ask_services
+    - title: "Clients"
+      payload: /faq/ask_clients
+    - title: "Why Us"
+      payload: /faq/ask_why_us
+    - title: "Products"
+      payload: /ask_product_inquiry
+    - title: "Contact Information"
+      payload: /faq/ask_contact_details
+  
+  utter_ask_product_inquiry:
+  - text: "Below are some of our customised products which we finetune as per your need. To know more about them, click below:"
+    buttons:
+    - title: "ChatBot"
+      payload: '/product_details{{"product":"ChatBot"}}'
+    - title: "QnA System"
+      payload: '/product_details{{"product":"QnA System"}}'
+    - title: "Semantic Search"
+      payload: '/product_details{{"product":"Semantic Search"}}'
+  
+  utter_faq/ask_services:
+  - text: "<b>At AIViveka, we Provide State-of-art AI services to businesses.</b> Services like: ChatBots, Semantic Search, NER, Image Processing, Sentiment Analysis, Topic Modeling, Advance QnA Systems and Scanned Document Processing(PDF, Invoices etc.). Please visit [AIViveka Services](https://aiviveka.com/services/) for more information."
+  utter_faq/ask_clients:
+  - text: " In Progress. Please Visit [AIViveka](https://aiviveka.com) for more information. "
+  utter_faq/ask_why_us:
+  - text: "Because, We always focus on use cases which can really bring value to your businesses. Having deep expertise and experience in NLP help us in saving effort and money for our customers. Please visit [AIViveka](https://aiviveka.com/)"
+  utter_faq/ask_contact_details:
+  - text: "You can connect us via mail at rasabot99@gmail.com and Contact no: +91-9051270079."
+  utter_faq/ask_career_options:
+  - text: "Please check on our website: [AIViveka](https://aiviveka.com) or <br> Contact us at: rasabot99@gmail.com and <br>Phone no: +91-9051270079."
+  
+  utter_in_progress:
+  - text: Development is still in progress.
+
+  utter_feedback:
+  - text: "Was the information helpful?"
+    custom:
+      payload: quickReplies
+      data:
+      - title: "Yes"
+        payload: /affirm
+      - title: "No"
+        payload: /deny
+
+  utter_main_menu:
+  - text: "Thank You. For more information, please check below options."
+  # utter_cheer_up:
+  # - text: "Here is something to cheer you up:"
+  #   image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  # utter_did_that_help:
+  # - text: "Did that help you?"
+
+  # utter_happy:
+  # - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot. Providing digital help to AIViveka."
+
+  utter_ask_name:
+  - text: "Could you please tell me your name?"
+
+  utter_ask_email:
+  - text: "Could you please tell me your email address?"
+
+  utter_ask_phone_number:
+  - text: "Could you please tell me you phone number?"
+
+  utter_ask_message:
+  - text: "Please add your message:"
+
+  utter_ask_confirm_detail:
+  - text: "Below are the details, I captured. Please confirm:<br><br> Name:{name} <br> Email:{email} <br> Phone Number:{phone_number} <br> Message: {message}"
+    custom:
+      payload: quickReplies
+      data:
+      - title: "Yes"
+        payload: /affirm
+      - title: "No"
+        payload: /deny
+    
+  
+  utter_mail_success:
+  - text: "I have mailed the details to our Team. We will contact you within 48 hours."
+  utter_mail_cancelled:
+  - text: "Thanks! I have cancelled the request."
+
+  utter_product_demo:
+  - text: Would you like to contact us for Demo?
+    custom:
+      payload: quickReplies
+      data:
+      - title: "Yes"
+        payload: /affirm
+      - title: "No"
+        payload: /deny
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+actions:
+- utter_greet
+- show_product_details
+- validate_simple_product_form
+- validate_support_request_form
+- action_submit_support_request
+- action_slot_reset

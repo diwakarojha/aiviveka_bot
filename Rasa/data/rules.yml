@@ -1,0 +1,85 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+# - rule: In progress Items
+#   steps:
+#   - intent: greet
+#   - action: utter_greet1
+#   - action: utter_greet2
+#   - action: utter_greet3
+#   - action: utter_greet4
+#   - action: utter_greet5
+#   - action: utter_greet6
+#   - action: utter_greet7
+
+- rule: In progress Items
+  steps:
+  - intent: about_us
+  - action: utter_about_us
+
+# 1. Activate Product Information Form
+- rule: Activate Product Form
+  steps:
+  - intent: product_details
+  - action: simple_product_form
+  - active_loop: simple_product_form
+
+# 2. Submit Product Information Form
+- rule: Submit Product Form
+  condition:
+  - active_loop: simple_product_form
+  steps:
+  - action: simple_product_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: show_product_details
+  - action: action_slot_reset
+  - action: utter_product_demo
+  # - action: utter_feedback
+  # - or: 
+  #   - intent: deny
+  #   - intent: affirm
+  # - action: utter_main_menu
+  # - action: utter_greet
+
+# 1. Activate Support request form
+- rule: Activate Support request Form
+  steps:
+  - intent: support_request
+  - action: support_request_form
+  - active_loop: support_request_form
+
+# 2. Submit Support request form
+- rule: Submit Support request Form
+  condition:
+  - active_loop: support_request_form
+  steps:
+  - action: support_request_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_submit_support_request
+  - action: action_slot_reset
+  - action: utter_feedback
+  - or: 
+    - intent: deny
+    - intent: affirm
+  - action: utter_main_menu
+  - action: utter_greet
+
+# - rule: FAQ Rules
+#   steps:
+#   - intent: faq
+#   - action: utter_faq

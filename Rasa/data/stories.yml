@@ -1,0 +1,98 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+# - story: sad path 1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: affirm
+#   - action: utter_happy
+
+# - story: sad path 2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: deny
+#   - action: utter_goodbye
+
+- story: About US
+  steps:
+  - intent: about_us
+  - action: utter_about_us
+
+# - story: Product Inquiry
+#   steps:
+#   - intent: product_inquiry
+#   - action: ask_product_inquiry
+
+
+- story: FAQ helpful Path
+  steps:
+  - intent: faq
+  - action: utter_faq
+  - checkpoint: ask_feedback
+
+- story: Get Products Information
+  steps:
+  - intent: ask_product_inquiry
+  - action: utter_ask_product_inquiry
+
+- story: Get Product Details Demo-affirm
+  steps:
+  - action: utter_product_demo
+  - intent: affirm
+  - action: support_request_form
+  - active_loop: support_request_form
+
+
+- story: Get Product Details Demo-Deny
+  steps:
+  - action: utter_product_demo
+  - intent: deny
+  - checkpoint: ask_feedback
+
+- story: Support request
+  steps:
+  - intent: support_request
+  - action: support_request_form
+  - active_loop: support_request_form
+
+# Get user feedback
+- story: user provides feedback-affirm
+  steps:
+  - checkpoint: ask_feedback
+  - action: utter_feedback
+  - intent: affirm
+  - action: utter_main_menu
+  - action: utter_greet
+
+- story: user provides feedback-deny
+  steps:
+  - checkpoint: ask_feedback
+  - action: utter_feedback
+  - intent: deny
+  - action: utter_main_menu
+  - action: utter_greet
+
+# - story: Ask feedback
+#   steps:
+#   - action: utter_feedback
+#   - or: 
+#     - intent: deny
+#     - intent: affirm
+#   - action: utter_in_progress
+#   - action: utter_main_menu
+#   - action: utter_in_progress
+#   - intent: utter_greet
