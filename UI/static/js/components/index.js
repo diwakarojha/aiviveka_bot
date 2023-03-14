@@ -9,7 +9,7 @@ function include(file) {
 
 /* include all the Chat components js file */
 
-var rootPath="."
+var rootPath="https://diwakarojha.github.io/aiviveka_bot/UI"
 
 include(rootPath+'/static/js/components/chat.js');
 include(rootPath+'/static/js/constants.js');

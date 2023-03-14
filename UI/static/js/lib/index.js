@@ -8,7 +8,7 @@ function include(file) {
 
     document.getElementsByTagName('head').item(0).appendChild(script);
 }
-var rootPath="."
+var rootPath="https://diwakarojha.github.io/aiviveka_bot/UI"
 include(rootPath+'/static/js/lib/jquery.min.js');
 include(rootPath+'/static/js/lib/materialize.min.js');
 include(rootPath+'/static/js/lib/chart.min.js');
