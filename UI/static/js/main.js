@@ -5,9 +5,9 @@ function loadBot() {
      <!--Import Font Awesome Icon Font-->\
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous"/>\
      <!--Import materialize.css-->\
-     <link rel="stylesheet" type="text/css" href="./static/css/materialize.min.css" />\
+     <link rel="stylesheet" type="text/css" href="https://diwakarojha.github.io/aiviveka_bot/UI/static/css/materialize.min.css" />\
      <!--Main css-->\
-     <link rel="stylesheet" type="text/css" href="./static/css/style.css" />\
+     <link rel="stylesheet" type="text/css" href="https://diwakarojha.github.io/aiviveka_bot/UI/static/css/style.css" />\
      <meta name="viewport" content="width=device-width, initial-scale=1" />\
       <div class="chat_container">\
        <!-- Modal for rendering the charts, declare this if you want to render charts, \
@@ -49,7 +49,7 @@ function loadBot() {
        </div>\
        <!--bot profile-->\
        <div class="profile_div" id="profile_div">\
-         <img class="imgProfile" src="./static/img/botAvatar.png" />\
+         <img class="imgProfile" src="https://diwakarojha.github.io/aiviveka_bot/UI/static/img/botAvatar.png" />\
        </div>\
        <!-- Bot pop-up intro -->\
        <div class="tap-target" data-target="profile_div">\
@@ -61,7 +61,7 @@ function loadBot() {
          </div>\
        </div>\
      </div>'
-  var rootPath="."
+  var rootPath="https://diwakarojha.github.io/aiviveka_bot/UI"
   let chatBotDiv = document.createElement('div')
   chatBotDiv.innerHTML = content
 

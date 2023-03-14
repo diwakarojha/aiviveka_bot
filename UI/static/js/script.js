@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* import components */
-include('./static/js/components/index.js');
+include('https://diwakarojha.github.io/aiviveka_bot/UI/static/js/components/index.js');
 
 window.addEventListener('load', () => {
   // initialization
