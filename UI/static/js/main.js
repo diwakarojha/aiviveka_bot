@@ -69,9 +69,9 @@ function loadBot() {
   jqueryScript.src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
   chatBotDiv.appendChild(jqueryScript)
 
-  let materializeScript = document.createElement('script')
-  materializeScript.src=rootPath+"/static/js/lib/materialize.min.js"
-  chatBotDiv.appendChild(materializeScript)
+  // let materializeScript = document.createElement('script')
+  // materializeScript.src=rootPath+"/static/js/lib/materialize.min.js"
+  // chatBotDiv.appendChild(materializeScript)
 
   let uuidMinScript = document.createElement('script')
   uuidMinScript.src=rootPath+"/static/js/lib/uuid.min.js"
