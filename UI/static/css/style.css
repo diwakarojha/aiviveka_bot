@@ -4,6 +4,184 @@
   background-size: cover;
 } */
 
+
+html {
+  font-size: 14px;
+  line-height:1.5;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+ }
+
+ .modal {
+  display:none;
+  position:fixed;
+  left:0;
+  right:0;
+  background-color:#fafafa;
+  padding:0;
+  max-height:70%;
+  width:55%;
+  margin:auto;
+  overflow-y:auto;
+  border-radius:2px;
+  will-change:top, opacity
+ }
+
+ .clearfix {
+  clear: both;
+}
+
+
+
+.tap-target {
+  position: absolute;
+  font-size: 1rem;
+  border-radius: 50%;
+  background-color: #ee6e73;
+  -webkit-box-shadow: 0 20px 20px 0 rgba(0,0,0,0.14),0 10px 50px 0 rgba(0,0,0,0.12),0 30px 10px -20px rgba(0,0,0,0.2);
+  box-shadow: 0 20px 20px 0 rgba(0,0,0,0.14),0 10px 50px 0 rgba(0,0,0,0.12),0 30px 10px -20px rgba(0,0,0,0.2);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1),-webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+  transition: opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1),-webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+  transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1),opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+  transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1),opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1),-webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+
+.material-icons {
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: 'liga';
+  -moz-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+}
+
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+.chip {
+  display: inline-block;
+  height: 32px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(0,0,0,0.6);
+  line-height: 32px;
+  padding: 0 12px;
+  border-radius: 16px;
+  background-color: #e4e4e4;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+::placeholder {
+  color: #d1d1d1;
+}
+/*Verify this element css*/
+
+b, strong {
+  font-weight: bolder;
+}
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+textarea {
+  width: 100%;
+  height: 3rem;
+  background-color: transparent;
+}
+
+*, ::before, ::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+    margin-left: 0px;
+}
+.tap-target-content {
+  position: relative;
+  display: table-cell;
+}
+
+h5 {
+  font-size: 1.64rem;
+  line-height: 110%;
+  margin: 1.0933333333rem 0 .656rem 0;
+}
+
+.white-text {
+  color: #fff !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* fonts google apis*/
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*Font awesome min css*/
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+    font-size: 14px;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-send::before, .fa-paper-plane::before {
+  content: "\f1d8";
+}
+
+.fa {
+  font: normal normal normal 14px/1 FontAwesome;
+    font-size: 14px;
+  font-size: inherit;
+  text-rendering: auto;
+}
+
+
+
+
 /* ============= css related to chats =============== */
 
 .widget {
